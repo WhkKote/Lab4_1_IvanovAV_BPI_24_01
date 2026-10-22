@@ -5,13 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab4_1_IvanovAV_BPI_24_01"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Menu>
-            <MenuItem x:Name="Employee" Header="Сотрудники"
-                      Click="Employee_OnClick"></MenuItem>
-            <MenuItem x:Name="Role" Header="Должности"
-                      Click="Role_OnClick"></MenuItem>
-        </Menu>
+        Title="Управление сотрудниками"
+        Height="350"
+        Width="640"
+        MinWidth="500"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        Foreground="{DynamicResource TextBrush}"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+
+            <TextBlock Text="Управление сотрудниками"
+                       FontSize="26"
+                       FontWeight="SemiBold"
+                       Foreground="{DynamicResource TextBrush}"/>
+
+            <TextBlock Text="Система учёта сотрудников и должностей"
+                       FontSize="13"
+                       Margin="0,8,0,0"
+                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+
+        </StackPanel>
+
+        <Border Grid.Row="2"
+                Background="{DynamicResource CardBackgroundBrush}"
+                BorderBrush="{DynamicResource BorderBrushDark}"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="12">
+
+            <Menu>
+                <MenuItem x:Name="Employee"
+                          Header="Сотрудники"
+                          Click="Employee_OnClick"
+                          Style="{StaticResource NavigationMenuItemStyle}"/>
+
+                <MenuItem x:Name="Role"
+                          Header="Должности"
+                          Click="Role_OnClick"
+                          Style="{StaticResource NavigationMenuItemStyle}"/>
+            </Menu>
+
+        </Border>
+
+        <TextBlock Grid.Row="3"
+                   Text="Выберите раздел для просмотра информации."
+                   Margin="4,20,0,0"
+                   FontSize="13"
+                   Foreground="{DynamicResource SecondaryTextBrush}"/>
+
     </Grid>
 </Window>

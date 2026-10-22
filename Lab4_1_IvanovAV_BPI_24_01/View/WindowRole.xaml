@@ -5,20 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab4_1_IvanovAV_BPI_24_01.View"
         mc:Ignorable="d"
-        Title="Должности" Height="300" Width="300">
-    <StackPanel Background="#FFD8D8D8">
-        <Label Margin="5" HorizontalAlignment="Center">Список должностей сотрудников</Label>
-        <ListView x:Name="lvRole" Background="#FFD3CDCD">
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Header="Код" Width="50"
-                                        DisplayMemberBinding="{Binding Id}"/>
-                        <GridViewColumn Header="Наименование должности"
-                                        DisplayMemberBinding="{Binding NameRole}"/>
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>
-    </StackPanel>
+        Title="Должности"
+        Height="420"
+        Width="560"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        Foreground="{DynamicResource TextBrush}"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+
+            <TextBlock Text="Должности"
+                       FontSize="24"
+                       FontWeight="SemiBold"
+                       Foreground="{DynamicResource TextBrush}"/>
+
+            <TextBlock Text="Список должностей сотрудников"
+                       FontSize="13"
+                       Margin="0,6,0,0"
+                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+
+        </StackPanel>
+
+        <Border Grid.Row="2"
+                Background="{DynamicResource CardBackgroundBrush}"
+                BorderBrush="{DynamicResource BorderBrushDark}"
+                BorderThickness="1"
+                CornerRadius="10"
+                Padding="10">
+
+            <ListView x:Name="lvRole">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+
+                            <GridViewColumn Header="Код"
+                                            Width="70"
+                                            DisplayMemberBinding="{Binding Id}"/>
+
+                            <GridViewColumn Header="Наименование должности"
+                                            Width="280"
+                                            DisplayMemberBinding="{Binding NameRole}"/>
+
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Border>
+    </Grid>
 </Window>
