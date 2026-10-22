@@ -1,76 +1,63 @@
 ﻿<Window x:Class="Lab4_1_IvanovAV_BPI_24_01.View.WindowEmployee"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Lab4_1_IvanovAV_BPI_24_01.View"
-        mc:Ignorable="d"
-        Title="Сотрудники"
-        Height="480"
-        Width="880"
-        MinWidth="780"
-        Background="{DynamicResource WindowBackgroundBrush}"
-        Foreground="{DynamicResource TextBrush}"
-        WindowStartupLocation="CenterScreen">
+        Title="Сотрудники" Height="400" Width="670">
 
-    <Grid Margin="24">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="18"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <DockPanel>
 
-        <StackPanel Grid.Row="0">
+        <StackPanel Orientation="Horizontal"
+                    DockPanel.Dock="Top">
 
-            <TextBlock Text="Сотрудники"
-                       FontSize="24"
-                       FontWeight="SemiBold"
-                       Foreground="{DynamicResource TextBrush}"/>
+            <Button Content="Добавить"
+                    Height="25"
+                    Margin="10,10,5,10"
+                    Command="{Binding AddPerson}"/>
 
-            <TextBlock Text="Список сотрудников компании"
-                       FontSize="13"
-                       Margin="0,6,0,0"
-                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+            <Button Content="Редактировать"
+                    Height="25"
+                    Margin="10,10,5,10"
+                    Command="{Binding EditPerson}"/>
+
+            <Button Content="Удалить"
+                    Height="25"
+                    Margin="10,10,5,10"
+                    Command="{Binding DeletePerson}"/>
 
         </StackPanel>
 
-        <Border Grid.Row="2"
-                Background="{DynamicResource CardBackgroundBrush}"
-                BorderBrush="{DynamicResource BorderBrushDark}"
-                BorderThickness="1"
-                CornerRadius="10"
-                Padding="10">
+        <ListView x:Name="lvEmployee"
+                  ItemsSource="{Binding ListPersonDpo}"
+                  SelectedItem="{Binding SelectedPersonDpo, Mode=TwoWay}">
 
-            <ListView x:Name="lvEmployee">
-                <ListView.View>
-                    <GridView>
-                        <GridView.Columns>
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
 
-                            <GridViewColumn Header="Код"
-                                            Width="65"
-                                            DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Код"
+                                        Width="50"
+                                        DisplayMemberBinding="{Binding Id}"/>
 
-                            <GridViewColumn Header="Фамилия"
-                                            Width="150"
-                                            DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Фамилия"
+                                        Width="120"
+                                        DisplayMemberBinding="{Binding LastName}"/>
 
-                            <GridViewColumn Header="Имя"
-                                            Width="130"
-                                            DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="Имя"
+                                        Width="110"
+                                        DisplayMemberBinding="{Binding FirstName}"/>
 
-                            <GridViewColumn Header="Должность"
-                                            Width="165"
-                                            DisplayMemberBinding="{Binding Role}"/>
+                        <GridViewColumn Header="Должность"
+                                        Width="135"
+                                        DisplayMemberBinding="{Binding RoleName}"/>
 
-                            <GridViewColumn Header="Дата рождения"
-                                            Width="170"
-                                            DisplayMemberBinding="{Binding Birthday, StringFormat={}{0:dd\.}{0:MM\.}{0:yyyy}}"/>
+                        <GridViewColumn Header="Дата рождения"
+                                        Width="125"
+                                        DisplayMemberBinding="{Binding Birthday, StringFormat={}{0:dd\.}{0:MM\.}{0:yyyy}}"/>
 
-                        </GridView.Columns>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
 
-        </Border>
-    </Grid>
+        </ListView>
+
+    </DockPanel>
 </Window>
