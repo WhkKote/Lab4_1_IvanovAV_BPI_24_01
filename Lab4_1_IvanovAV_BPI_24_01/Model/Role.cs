@@ -1,5 +1,5 @@
 ﻿
-namespace WpfApp.Model
+namespace Lab4_1_IvanovAV_BPI_24_01.Model
 {
     public class Role
     {
